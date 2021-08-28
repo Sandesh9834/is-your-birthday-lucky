@@ -1,22 +1,25 @@
-console.log("hello");
-
 var birthDate = document.querySelector("#date");
 var luckyNumber = document.querySelector("#number");
-var bthCheck = document.querySelector("#check")
-var sum = 0;
+var bthCheck = document.querySelector("#check");
+
 var strConcat = "";
+
+function addDate(dateNum)
+{
+    var sum = 0;
+    while (dateNum != 0) 
+    {
+        sum = sum + dateNum % 10;
+        dateNum = parseInt(dateNum / 10);
+    }
+    return sum;
+}
 
 function enteredDate()
 {
       var strDate = birthDate.value;
-      // const strDate = arrDate.toString();
-      // console.log(strDate);
-      // console.log("Type of strDate is " + typeof(strDate))
+      var number = Number(luckyNumber.value);
       var array = strDate.split("-");
-      // console.log(array);
-      // console.log(array[0]);
-      // console.log(array[1]);
-      // console.log(array[2]);
 
       for(var i = 0; i<array.length; i++)
       {
@@ -24,11 +27,17 @@ function enteredDate()
             strConcat.split("0/")
       }
       dateNum = Number(strConcat)
-      console.log(strConcat)
-      
-      // console.log("Entered date is: " + birthDate.value);
-      // // console.log("Entered number is: " + luckyNumber.value);
+     
+      var sumOfDate = addDate(dateNum);
 
+      if(sumOfDate % number === 0)
+      {
+            console.log("Lucky")
+      }
+      else
+      {
+            console.log("Not lucky")
+      }      
 }
-// console.log(typeof(birthDate));
+
 bthCheck.addEventListener("click", enteredDate);
