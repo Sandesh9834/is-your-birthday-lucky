@@ -20,7 +20,7 @@ h1{
 }
 
 button{
-      background-color: #512DAB;
+      background-color: #e7630b;
       color: white;
       width: 200px;
       height: 50px;
@@ -69,6 +69,8 @@ footer {
       bottom: 0;
       left: 0;
       right: 0;
+      background-color: #19054d;
+      color: white;
     }
     
     footer p {
